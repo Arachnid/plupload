@@ -275,7 +275,12 @@
 					}
 				};
 
-				xhr.open("post", plupload.buildUrl(up.settings.url, {name : file.target_name || file.name}), true);
+				if(up.settings.use_query_string) {
+					url = plupload.buildUrl(up.settings.url, {name : file.target_name || file.name})
+				} else {
+					url = up.settings.url;
+				}
+				xhr.open("post", url, true);
 				xhr.setRequestHeader('Content-Type', 'application/octet-stream');
 				nativeFile = html5files[file.id]; 
 
