@@ -289,6 +289,20 @@
 		},
 
 		/**
+		 * Verifies if a response code signifies success or failure.
+		 *
+		 * @param {String} code The HTTP response code
+		 * @return {boolean} True if the response code indicates success, false otherwise.
+		 */
+		isSuccessStatus : function(code) {
+			code = String(code);
+			if(code[0] == '2' || code[0] == '3') {
+				return true;
+			}
+			return false;
+		},
+
+		/**
 		 * Executes the callback function for each item in array/object. If you return false in the
 		 * callback it will break the loop.
 		 *
