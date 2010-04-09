@@ -324,7 +324,7 @@
 
 					getSilverlightObj().UploadFile(
 						lookup[file.id],
-						plupload.buildUrl(up.settings.url, {name : file.target_name || file.name}),
+						up.settings.use_query_string?plupload.buildUrl(up.settings.url, {name : file.target_name || file.name}):up.settings.url,
 						jsonSerialize({
 							chunk_size : settings.chunk_size,
 							image_width : resize.width,
