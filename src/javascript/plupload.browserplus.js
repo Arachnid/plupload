@@ -173,7 +173,7 @@
 					    chunkFile = chunkStack.shift();
 
 						browserPlus.Uploader.upload({
-							url : plupload.buildUrl(up.settings.url, urlParams),
+							url : up.settings.use_query_string?plupload.buildUrl(up.settings.url, urlParams):up.settings.url,
 							files : {file : chunkFile},
 							cookies : document.cookies,
 							postvars : up.settings.multipart_params,
@@ -217,7 +217,7 @@
 									});
 
 									// Response isn't 200 ok
-									if (httpStatus != 200) {
+									if (!plupload.isSuccessStatus(httpStatus)) {
 										up.trigger('Error', {
 											code : plupload.HTTP_ERROR,
 											message : 'HTTP Error.',
