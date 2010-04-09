@@ -283,7 +283,11 @@
 
 				// Store action
 				form.tmpAction = form.action;
-				form.action = plupload.buildUrl(up.settings.url, {name : file.target_name || file.name});
+				if(up.settings.use_query_string) {
+					form.action = plupload.buildUrl(up.settings.url, {name : file.target_name || file.name});
+				} else {
+					form.action = up.settings.url
+				}
 
 				// Store Target
 				form.tmpTarget = form.target;
