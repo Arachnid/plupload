@@ -99,7 +99,7 @@
 				if (window.XMLHttpRequest) {
 					xhr = new XMLHttpRequest();
 
-					return !!(xhr.sendAsBinary || xhr.upload);
+					return !!(xhr.sendAsBinary || (xhr.upload && !uploader.settings.multipart));
 				}
 
 				return false;
