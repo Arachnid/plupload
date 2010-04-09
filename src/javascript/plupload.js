@@ -574,6 +574,7 @@
 			max_file_size : '1gb',
 			multi_selection : true,
 			file_data_name : 'file',
+      use_query_string : true,
 			filters : [
 				{title : "Image files", extensions : "jpg,gif,png"}
 			]
